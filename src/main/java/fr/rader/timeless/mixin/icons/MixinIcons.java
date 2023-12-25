@@ -25,7 +25,7 @@ public abstract class MixinIcons {
         if (!Timeless.getConfig().useOldWindowIcons) {
             return;
         }
-
+	
         List<InputSupplier<InputStream>> icons = List.of(
                 IconSupplier.getIcon("icon_16x16.png"),
                 IconSupplier.getIcon("icon_32x32.png")
@@ -40,10 +40,6 @@ public abstract class MixinIcons {
             cancellable = true
     )
     public void timeless$getMacIcon(ResourcePack resourcePack, CallbackInfoReturnable<InputSupplier<InputStream>> cir) {
-        if (!Timeless.getConfig().useOldWindowIcons) {
-            return;
-        }
-
-        cir.setReturnValue(IconSupplier.getIcon("minecraft.icns"));
+	throw new RuntimeException();
     }
 }
